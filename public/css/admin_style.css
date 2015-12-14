@@ -1,0 +1,372 @@
+@CHARSET "UTF-8";  /*MALAVE*/
+body {
+color:  
+font-family: Verdana;
+font-size: 14px;
+margin: 0;
+padding: 0;
+text-align: center;
+background-color: #B3B3B3;
+}
+							/* GLOBALES */
+							
+span.display{
+display: none;
+}
+
+img{
+border: 0; 
+}
+
+.left{
+float: left;
+}
+
+.right{
+float:right;
+}
+
+
+							/* TOP */
+#top_top{
+	width: 1000px;
+	height: 20px;
+	margin: 0;
+	background: url(img_ad/bg_top_top.png) no-repeat top;
+}	
+						
+#top{
+width: 1000px;
+height: 267px;
+margin: 0 auto;
+text-align: left;
+background: url(img_ad/bg_top.jpg) no-repeat;
+}	
+
+	#top h1{
+		width: 239px;
+		height: 174px;
+		margin: 0 auto;
+		background: url(img_ad/logo_nueva_era_del_ballet.png) no-repeat;
+	}
+
+
+								/* MENU */
+#menu{
+	width: 1000px;
+	height: 38px;
+	margin: 0 auto;
+	background: url(img_ad/bg_menu.png) no-repeat;
+}
+		#menu ul{
+			width: 1000px;
+			padding: 0 auto;
+			margin: 0;
+			list-style: none;
+			text-align: center;
+		}
+		
+			#menu ul li{
+				display: inline;
+			}
+			
+				#menu ul li a, #menu ul li a.visited{
+					color: #fff;
+					width: 100px;
+					height: 22px;	
+					display: block;
+					line-height: 30px;			
+					text-align: center;
+					text-decoration: none;
+					font-size: 14px;
+					float: left;
+				}
+			
+					
+				#menu ul li a:hover{
+					font-weight: bold;
+					/*text-decoration: underline;*/
+				}
+		
+							/* PRINCIPAL */
+#principal{
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: left;
+	background: url(img_ad/bg_principal.png) repeat-y;
+}
+
+							/* LEFT */
+
+#left{
+	width: 250px;
+	display: block;
+	overflow: hidden;
+	float: left;
+}
+
+		#left h3{
+			color: #fff;
+			height: 32px;
+			font-weight: bold;
+			padding: 0;
+			margin: 0;
+			text-indent: 15px;
+			line-height: 28px;
+			background: url(img_ad/bg_top_list.png) 0 0 no-repeat;
+		}
+		
+		div.list{
+			margin: 0 0 20px 20px;
+			padding: 0;
+			width: 218px;	
+			background: url(img_ad/foot_list.png) no-repeat;
+		}
+		
+		div.list img{
+			margin: 0 auto;
+			display: block;
+		}
+
+		#left ul{
+			padding: 0;
+			margin: 0 0 0 0px;
+			list-style: none;
+		}
+		
+		#left ul li{
+			color: #fff;
+			margin: 0;
+			padding: 0;
+			height: 28px;
+			text-indent: 15px;
+			line-height: 28px;
+			background: url(img_ad/li.png) 0px 0px;
+		}
+		
+		#left ul li.big{
+			margin: 0;
+			padding: 0 6px;
+			height: 100%;
+			overflow: hidden;
+			text-indent: 0px;
+			line-height: 28px;
+			background: #B4AEAB;
+		}
+		
+		#left ul li a, #left ul li a:visited{
+			color: #fff;
+			width: 218px;
+			height: 28px;
+			display: block;
+			text-decoration: none;
+			background: url(img_ad/li.png) 0px 0px;
+		}
+		
+		#left ul li a:hover{
+			background: url(img_ad/li.png) 0px -28px;
+		}
+		
+		#left ul li a:visited{
+			color: #fff;
+		}
+		
+		div.foot_list{
+			width: 218px;
+			height: 15px;
+			clear: both;		
+			background: url(img_ad/foot_list.png) no-repeat;
+		}
+		
+		
+		#left p{
+			margin: 10px;
+			text-align: justify;
+		}
+							/* MIDDLE */
+							
+#middle{
+	color: #171752;
+	width: 660px;
+	float: left;
+}	
+
+			
+
+		#middle h1{
+		   color: #D9241B;		   
+		   margin-left: 30px;
+		}
+		
+		#middle h2{
+		   color: #002596;
+		   border-bottom: 2px solid #E4554C;		   
+		   margin-left: 30px;
+		}
+		
+		#middle h4{		   
+		   margin-left: 52px;
+		}
+		
+		#middle p{
+			margin: 20px 0px 20px 30px;
+			text-align: justify;
+		}
+	
+#middle2{
+	color: #171752;
+	width: 700px;
+	margin: 0  0 0 100px;
+	float: left;
+}			
+		
+		#middle2 h1{
+		   color: #D9241B;		   
+		   margin-left: 30px;
+		}
+		
+		#middle2 h2{
+		   color: #002596;
+		   border-bottom: 2px solid #E4554C;		   
+		   margin-left: 30px;
+		}
+		
+		#middle2 h4{		   
+		   margin-left: 52px;
+		}
+		
+		#middle2 p{
+			margin: 20px 0px 20px 30px;
+			text-align: justify;
+		}
+	
+table tr td{
+	text-align:  center;
+}
+
+	table tr td img{
+	  width: 70px;
+	  height: 60px;
+	}
+							/* RIGHT */
+							
+#right{
+	width: 164px;
+	float: right;
+}
+
+		#right img.gala{
+			margin: 30px 2px 30px 10px;
+			float: right;
+		}	
+				
+				
+img.banner{
+margin: 0 0 0 34px;
+}				
+							/*Contenedor bottom */
+
+#bottom{
+	clear: both;
+	width: 964px;
+	height: 12px;
+	margin: 0 auto;
+	background: url(img_ad/bg_contenedor_bottom.png) no-repeat;
+}	
+
+								   /*************  FORMULARIO CONTACTOS ********************/
+
+    .forma, form {
+    margin: 0 auto;
+     padding: 10px 2px 2px 15px;
+    width: 580px;       
+    }
+   
+    .forma fieldset, form fieldset{
+        margin: 0 0 10px 0;
+        padding: 0 2px 2px 15px;
+        border: none;
+        }
+    .forma fieldset label,form fieldset label {
+		color: #29166F;
+        display: block;    
+        width: 100px;
+        padding: 3px 0 4px 20px;
+        margin: 3px 0 0 0;
+        float: left;
+        }
+    .forma fieldset input, form fieldset input {
+        width: 200px;                
+        margin: 3px 0 3px 4px;
+        border: 1px solid #CCC;
+        padding: 4px;
+        }
+    .forma fieldset textarea, form fieldset textarea {
+        width: 204px;              
+        margin: 3px 0 0 4px;
+        border: 1px solid #CCC;
+        padding: 2px;
+        }
+        
+     .forma select{
+       width: 200px; 
+        padding: 3px 0 4px 20px;
+     }
+       
+/***********/       
+.allright {
+    border: 1px solid #669900;
+    background: #F2FFF2 url(img_ad/adm/allright.png) no-repeat center left;
+    padding: 3px 10px 3px 20px;
+    font-size: 1.1em;
+    width: 400px;
+    }
+   
+ul#lista_errores {
+    list-style: none;
+    margin: 10px 20px 20px 0;
+    padding: 0;
+    }
+ul#lista_errores li {
+    border: 1px solid #FF0000;
+    background: #FFF0F0 url(img_ad/adm/error.png) no-repeat center left;
+    padding: 3px 10px 3px 20px;
+    font-style: italic;
+    margin: 10px;
+    width: 440px;
+    height: 20px;
+    }
+	
+p#enviar{ 
+margin-left: 206px;
+font-size: 12px;
+}
+							/* FOOT */ 
+							
+#foot{
+clear: both;
+width: 1000px;
+margin: 0 auto;
+height: 78px;
+background: url(img_ad/bg_foot.png) no-repeat top;
+}
+
+	#foot p {
+	color: #fff;
+	margin: 0 auto;
+	width: 800px;
+	text-align: center;
+	padding: 25px 0 0 15px;
+	}
+	
+		#foot p a, #foot p a:visited {
+		color: #fff;
+		padding: 0 0 0 0px;
+		text-decoration: none;
+		}
+		
+		#foot p a:hover{
+		text-decoration: underline;
+		}

@@ -1,0 +1,430 @@
+body {
+color: #000;
+width: 1200px;
+font-family: Arial;
+font-size: 14px;
+margin: 0 auto;
+padding: 0;
+text-align: center;
+background-color: #c8c8c8;
+}
+
+#principal{
+background: #ffffff;
+
+}
+							/* GLOBALES */
+							
+span.display{
+display: none;
+}
+
+img{
+border: 0;
+}
+
+.left{
+float: left;
+}
+
+.right{
+float:right;
+}
+
+.clear{
+    clear: both;
+}
+
+#barra{
+    width: 1200px;
+    height: 48px;
+    margin: 0 auto;
+    background-color: #3367CC;
+    display: block;
+}
+
+.barra2{
+    width: 1200px;
+    height: 98px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #FFF;
+}
+    .barra2 h1{
+    float: left;
+    margin: 10px 0 0 15px;
+    font-size: 65px;
+    font-weight: lighter;
+    }
+
+    .barra2 h3{
+    color: #333;
+    margin: 10px 0 0 15px;
+    font-size: 46px;
+    font-weight: lighter;
+    text-align: center;
+    }
+ 
+    /*twitter*/
+    .twitter-mention-button{
+    margin:  10px;
+    float: right;
+    }
+    
+    .blogspot{
+    width: 40px;
+    height: 40px;
+    margin:  4px 10px 10px 10px;
+    float: right;
+    }
+								/* MENU */
+#menu{
+        width: 500px;
+        height: 96px;
+        margin: 0 0 0 248px;
+        padding: 0;
+        float: left;
+}
+		#menu ul{
+			width: 600px;
+			height: 98px;
+			margin: 0;
+                        padding: 0;
+			list-style: none;
+		}
+		
+			#menu ul li{
+				display: inline;
+				
+			}
+			
+				#menu ul li a{
+					color: #000;
+                                        height: 98px;
+					min-width: 100px;
+                                        margin: 0;
+                                        padding: 0 5px;
+					display: block;
+					text-align: center;
+					text-decoration: none;
+                                        line-height: 100px;
+					font-size: 15px;
+                                        font-weight: bold;
+                                        background: url(img/bg_menu.jpg) repeat-x;
+                                         background-position: 0 2px;
+					float: left;
+				}
+							
+                                                    #menu ul li a:hover, #menu ul li a.select{
+                                                    color: #fff;
+                                                    font-weight: bold;
+                                                    line-height: 100px;
+                                                    background-position: 0 -98px;
+                                                    /*text-decoration: underline;*/
+                                                    }
+
+/* LOGOS */
+
+#logos{
+width: 1200px;
+height: 173px;
+clear: both;
+}
+
+        #logos a{
+        height: 173px;
+        width: 200px;
+        display: block;
+        float: left;
+        }
+
+    .slideshow{
+            width: 1200px;
+            height: 600px;
+            position: static;
+            clear: both;
+        }
+						/*Servicios*/
+#service{
+width: 580px;
+height: 150px;
+margin: 0 0 0 20px;
+float: left;
+}
+    .service1{
+    background: url(img/service1.jpg) left no-repeat;
+    }
+
+    .service2{
+    background: url(img/service2.jpg) left no-repeat;
+    }
+
+    .service3{
+    background: url(img/service3.jpg) left no-repeat;
+    }
+    .service4{
+    background: url(img/service4.jpg) left no-repeat;
+    }
+
+    #service h2{
+    color: #3266CC;
+    text-align: left;
+    margin: 10px 0 10px 150px;
+    }
+    
+    #service p{
+        color: #9a9a9a;
+        width: 350px;
+        margin: 5px 15px 10px 150px;
+        height: 60px;
+        text-align: justify;
+    }
+
+    #service  ul{
+        clear: both;
+        width: 580px;
+        height: 150px;
+        margin: 0 0 0 0px;
+        padding: 0;
+    }
+
+        #service ul li{
+            color: #9a9a9a;
+            width: 500px;
+            height: 20px;
+            padding: 0;
+            margin: 0 0 5px 150px;
+            list-style: none;
+            text-align: left;
+        }
+
+
+
+
+.columna{
+    overflow: hidden;
+    float: left;
+    width: 1180px;
+    margin:  0 20px;
+}
+
+.columna1{
+    overflow: hidden;
+    float: left;
+    width: 760px;
+}
+.columna2{
+    overflow: hidden;
+    float: left;
+    width: 360px;
+}
+	
+		.columna h3,  #contacto h3{
+			clear: both;
+			color: #343434;
+			font-size: 40px;
+			font-weight: normal;
+                        text-align: left;
+			/*padding: 0 30px 0 0;*/
+			margin: 20px;
+			/*border-bottom: 1px solid #5799D5;*/
+		}
+
+                .columna h3 span,  #contacto h3 span{
+                        color: #b1b1b1;
+                        font-size: 20px;
+                        text-align: left;
+                        display: block;
+                        font-weight: lighter;
+	      margin:  5px 0px;
+                        padding: 0;
+		}
+
+                 .columna h4,  #contacto h4{
+                    color: #3266CC;
+                    font-size: 20px;
+                        text-align: left;
+                        display: block;
+                    margin:  10px 20px;
+                        padding: 0;
+		}
+
+                .columna p{
+			color: #666;
+                        text-align: justify;
+                        display: block;
+                        font-size: 18px;
+                        margin:  10px 55px 20px 20px;
+                        line-height: 30px;
+		}
+
+                .columna ul{
+                    width: 600px;
+                    margin: 0;
+                    padding: 0;
+		}
+
+                    .columna ul li{
+                        width: 300px;
+                        height: 50px;
+                        padding: 0;
+                        margin: 0 0 5px 20px;
+                        list-style: none;
+                        text-align: left;
+                        border-bottom: solid 1px #ccc;
+                    }
+
+                      .columna ul li a{
+                       color: #3266CC;
+                       font-size: 20px;
+                       width: 300px;
+                       height: 50px;
+                       display: block;
+                       line-height: 50px;
+                       text-align: left;                
+                    }
+
+                     .columna ul li a:hover{
+                       color: #FF6600;
+                       text-decoration: underline;
+                    }
+		
+		
+		
+	a.leer_mas{
+            color: #fff;
+            width: 80px;
+            height: 20px;
+            display: block;
+            text-align: center;
+            margin: 20px 40px 10px auto;
+            background: #BDCBE5;
+            text-decoration: none;
+            line-height: 20px;
+	}
+	
+	a.leer_mas:hover{
+	background: #CCC7C3;
+    
+  }
+	
+					/*Contenedor bottom */
+
+#bottom{
+	clear: both;
+	width: 964px;
+	height: 12px;
+	margin: 0 auto;
+	background: url(img/bg_contenedor_bottom.png) no-repeat;
+}	
+
+  /*************  FORMULARIO CONTACTOS ********************/
+   #contacto{
+       width: 1200px;
+       clear: both;
+   }
+   
+            #contact_left{
+                width: 600px;
+                float: left;
+            }
+            
+             #contact_right{
+                width: 600px;
+                float: left;
+            }
+
+    .forma, form {
+    margin: 0 0 0 30px;
+    width: 500px;       
+    }
+   
+    .forma fieldset, form fieldset {
+        margin: 0 0 10px 0;
+        padding: 0 ;
+        border: 0;
+        }
+        
+    .forma fieldset label, fieldset label {
+        color: #3266CC;
+        display: block;    
+        width: 120px;
+        padding: 3px 0 4px 10px;
+        margin: 3px 0 0 0;
+        text-align:  left;
+        font-size: 16px;
+        float: left;
+        }
+    .forma fieldset input, form fieldset input {
+        width: 300px;                
+        margin: 3px 0 3px 4px;
+        border: 1px solid #CCC;
+        padding: 4px;
+        }
+    .forma fieldset textarea, form fieldset textarea {
+        width: 302px;              
+        margin: 3px 0 0 6px;
+        border: 1px solid #CCC;
+        padding: 2px;
+        }
+       
+/***********/       
+.allright {
+    border: 1px solid #669900;
+    background: #F2FFF2 url(img/adm/allright.png) no-repeat center left;
+    padding: 3px 10px 3px 20px;
+    font-size: 1.1em;
+    width: 400px;
+    }
+   
+ul#lista_errores {
+    list-style: none;
+    margin: 10px 20px 20px 0;
+    padding: 0;
+    }
+ul#lista_errores li {
+    border: 1px solid #FF0000;
+    background: #FFF0F0 url(img/adm/error.png) no-repeat center left;
+    padding: 3px 10px 3px 20px;
+    font-style: italic;
+    margin: 10px;
+    width: 440px;
+    height: 20px;
+    }
+	
+p#enviar{ 
+margin: 0 0 0 100px ;
+padding: 2px;
+background:  none;
+}
+							/* FOOT */ 
+							
+#foot{
+clear: both;
+color: #ccc;
+width: 1200px;
+height: 100px;
+margin: 0 auto;
+background-color: #3367CC;
+display: block;
+}
+
+	#foot p {
+	color: #ccc;
+	font-size: 14px;
+	margin: 0px auto;
+	width: 300px;
+	text-align: center;
+	padding: 50px 0 0 0px;
+	}
+	
+		#foot p a, #foot p a:visited {
+		color: #CECAC7;
+		padding: 0 10px 0 0px;
+		text-decoration: none;
+		}
+		
+		#foot p a:hover{
+		color: #979189;
+		text-decoration: underline;
+		}
