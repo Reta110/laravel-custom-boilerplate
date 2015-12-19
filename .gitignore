@@ -3,4 +3,5 @@
 Homestead.yaml
 Homestead.json
 .env
-/public/storage/**
+!public/storage
+public/storage/*
