@@ -65,24 +65,27 @@ class GeneratorController extends Controller
     public function show(Request $request)
     {
 
-        $public_path = public_path();
-        $url = $public_path.'/storage/';
-
      //Composer lines in variables
         $requireVar='';
         $requireDevVar='';
         $providers='';
         $aliases='';
         $publish='';
+
+        $version = Input::get('version');
+
+        if($version = '5.1')
+            $version = '"laravel/framework": "5.1.*"\'';
+
+
 foreach(Input::all() as $key => $value){
-  if($key != '_token'){
+  if($key != '_token' && $key != 'version'){
 
     $result = \DB::table('packages')
         ->where('id','=',$key)
         ->first();
 
      if($result->dev == 0){
-
         $requireVar = $requireVar.',
         '.$result->composer;
      }else{
@@ -91,19 +94,83 @@ foreach(Input::all() as $key => $value){
         '.$result->composer;
      }
 
+      //Providers
       if(isset($result->providers))
       $providers = $providers.'
       '.$result->providers;
+      //Aliases
       if(isset($result->aliases))
       $aliases = $aliases.$result->aliases;
+      //Publish
       if(isset($result->publish))
       $publish = $publish.'
       '.$result->publish;
   }
 }
+        list($content, $configApp) = $this->generate51($requireVar, $requireDevVar, $providers, $aliases);
 
-     //Estructure of the file
-     $content = '{
+        $day = date('d-m-y');
+        $folder = time();
+
+        Storage::put($day.'/'.$folder.'/composer.json',$content);
+        Storage::put($day.'/'.$folder.'/config.php',$configApp);
+
+        $variables = array(
+            'content' => $content,
+            'configApp' => $configApp,
+            'configApp' => $configApp,
+            'publish' => $publish,
+            'folder' => $folder
+        );
+
+    return redirect('/home')->with($variables);
+}
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    /**
+     * @param $requireVar
+     * @param $requireDevVar
+     * @param $providers
+     * @param $aliases
+     * @return array
+     */
+    public function generate51($requireVar, $requireDevVar, $providers, $aliases)
+    {
+//Estructure of the file
+        $content = '{
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -113,14 +180,14 @@ foreach(Input::all() as $key => $value){
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*"';
 
-    $content = $content.$requireVar.'
+        $content = $content . $requireVar . '
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0"';
 
-        $content = $content.$requireDevVar.'
+        $content = $content . $requireDevVar . '
     },
     "autoload": {
         "classmap": [
@@ -159,7 +226,7 @@ foreach(Input::all() as $key => $value){
 }
 ';
 
-$configApp = "<?php
+        $configApp = "<?php
 
 return [
 
@@ -306,8 +373,8 @@ return [
         App\\Providers\\EventServiceProvider::class,
         App\\Providers\\RouteServiceProvider::class,";
 
-        $configApp=$configApp.'
-        '.$providers."
+        $configApp = $configApp . '
+        ' . $providers . "
 
     ],
 
@@ -359,60 +426,14 @@ return [
         'View'      => Illuminate\\Support\\Facades\\View::class,
 
         ";
-            $configApp=$configApp.'
-            '.$aliases."
+        $configApp = $configApp . '
+            ' . $aliases . "
 
 
     ],
 
 ];
 ";
-        $folder = time();
-        Storage::put($folder.'/composer.json',$content);
-        Storage::put($folder.'/config.php',$configApp);
-
-        $variables = array(
-            'content' => $content,
-            'configApp' => $configApp,
-            'configApp' => $configApp,
-            'publish' => $publish,
-            'folder' => $folder
-        );
-
-        return redirect('/home')->with($variables);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return array($content, $configApp);
     }
 }

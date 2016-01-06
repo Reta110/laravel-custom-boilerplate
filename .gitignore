@@ -3,5 +3,9 @@
 Homestead.yaml
 Homestead.json
 .env
+<<<<<<< HEAD
 .idea
 /public/storage/**
+=======
+/storage/**
+>>>>>>> c322d01fdb2cc27aadee1e356edf872ababd1990

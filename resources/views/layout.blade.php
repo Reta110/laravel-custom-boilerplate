@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- made by www.metatags.org -->
+    <meta name="description" content="Laravel Boilerplate, downlooad laravel with all yours plugins, select componete" />
+    <meta name="keywords" content="larave, boilerplate, custom, customized, componentes, packagist" />
+    <meta name="author" content="metatags generator">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="3 month">
+    <title>Laravel Boilerplate</title>
+    <!-- laravel, boilerplate -->
+
     <link rel="icon" href="../../favicon.ico">
 
-    <title>BoilerPlate Customize Laravel</title>
+    <title>Laravel BoilerPlate</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,37 +51,48 @@
 
     <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
     <script src="http://www.google-analytics.com/ga.js" async></script>
-
+    <link rel="icon" type="image/png" href="/css/img/ico.png" />
 </head>
 
 <body>
 
-<!--<nav class="navbar navbar-inverse navbar-fixed-top clear">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav> -->
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '647874322016961',
+            xfbml      : true,
+            version    : 'v2.5'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
 
              @yield('content')
+            <div class="col-md-6 pull-left">
+                <p class="pull-left">
+                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://www.laravelboilerplate.com.ve/" data-hashtags="LaravelBoilerplate">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </p>
+                <p class="pull-left">
+                    &nbsp; <div class="fb-like" data-href="http://www.laravelboilerplate.com.ve/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+                </p>
+            </div>
+             <div class="col-md-6 pull-left">
+                <p class="text-right">Ver proyecto en <a href="https://github.com/Reta110/laravel-custom-boilerplate">GitHub</a></p>
+                <p class="text-right">@Reta110</p>
+            </div>
 
         </div>
     </div>

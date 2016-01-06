@@ -3,33 +3,54 @@
 @section('content')
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
-        Agregar paquete
-    </button>
+
     {!! Form::open(array('url' => '/home', 'class' => 'form-inline ')) !!}
 
-            <h2>Elige los componentes</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Elige la versión de Laravel</h3>
+        </div>
+        <div class="panel-body">
+            <div class="checkbox col-md-12">
+                <label> Laravel 5.1</label>
+                <input type="radio" name="version" value="5.1" checked>
+            </div>
+        </div>
 
+    </div>
+
+    <div class="panel panel-info">
+        <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+            Agregar componente
+        </button>
+
+        <div class="panel-heading">
+            <h3 class="panel-title">Elige los componentes</h3>
+        </div>
+        <div class="panel-body">
             @foreach($packages as $package)
 
                 <div class="checkbox col-md-3">
-                    <label>
-                        <input type="checkbox" name="{{$package->id}}"> {{$package->name}}
-                    </label>
+
+                    <label>{{$package->name}}</label>
+                    <input type="checkbox" name="{{$package->id}}">
+
                 </div>
 
             @endforeach
+        </div>
+
+    </div>
 
     <p class="top-buffer ">
         <button type="submit" class="btn btn-success btn-block center-block">Generar archivos</button>
     </p>
 
-
     {!! Form::close() !!}
 
     @if (session('content'))
-        <div class="alert alert-info">
-           Luego de bajar tu copia fresca de Laravel:
+        <div class="alert alert-danger">
+           Bajar tu copia fresca de Laravel 5.1:
         </div>
 
         <!-- Trigger -->
@@ -66,7 +87,7 @@
             });
         </script>
 
-        @if (session('publish'))
+        @if (session('publish') != "")
         <h2>3. Ejecuta en la consola los vendor publish correspondientes (Uno por uno)</h2>
         <pre class="language-none line-numbers" id="codeApp"><code>{{ session('publish') }}</code>
         </pre>
