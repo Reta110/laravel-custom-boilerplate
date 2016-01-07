@@ -80,6 +80,7 @@
         <div class="panel-body">
 
              @yield('content')
+
             <div class="col-md-6 pull-left">
                 <p class="pull-left">
                     <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://www.laravelboilerplate.com.ve/" data-hashtags="LaravelBoilerplate">Tweet</a>
@@ -90,7 +91,7 @@
                 </p>
             </div>
              <div class="col-md-6 pull-left">
-                <p class="text-right">Ver proyecto en <a href="https://github.com/Reta110/laravel-custom-boilerplate">GitHub</a></p>
+                <p class="text-right">See <a href="https://github.com/Reta110/laravel-custom-boilerplate">GitHub</a> project.</p>
                 <p class="text-right">@Reta110</p>
             </div>
 

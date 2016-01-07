@@ -97,16 +97,36 @@ foreach(Input::all() as $key => $value){
       //Providers
       if(isset($result->providers))
       $providers = $providers.'
-      '.$result->providers;
+        '.$result->providers;
       //Aliases
       if(isset($result->aliases))
       $aliases = $aliases.$result->aliases;
+
       //Publish
       if(isset($result->publish))
       $publish = $publish.'
       '.$result->publish;
   }
-}
+}//End foreach
+
+        //Indentation of the providers
+        if(isset($providers)){
+            $providers = str_replace(' ','', $providers);
+            $providers= preg_replace("[\n|\r|\n\r]", "", $providers);
+            $providers = str_replace('=>',' => ', $providers);
+            $providers = str_replace('::class,','::class,
+        ', $providers);
+        }
+
+        //Indentation of the aliases
+        if(isset($aliases)){
+            $aliases = str_replace(' ','', $aliases);
+            $aliases= preg_replace("[\n|\r|\n\r]", "", $aliases);
+            $aliases = str_replace('=>',' => ', $aliases);
+            $aliases = str_replace('::class,','::class,
+        ', $aliases);
+        }
+
         list($content, $configApp) = $this->generate51($requireVar, $requireDevVar, $providers, $aliases);
 
         $day = date('d-m-y');
@@ -371,10 +391,11 @@ return [
         App\\Providers\\AppServiceProvider::class,
         App\\Providers\\AuthServiceProvider::class,
         App\\Providers\\EventServiceProvider::class,
-        App\\Providers\\RouteServiceProvider::class,";
+        App\\Providers\\RouteServiceProvider::class,
 
-        $configApp = $configApp . '
-        ' . $providers . "
+        ";
+
+        $configApp = $configApp.$providers."
 
     ],
 
@@ -426,8 +447,7 @@ return [
         'View'      => Illuminate\\Support\\Facades\\View::class,
 
         ";
-        $configApp = $configApp . '
-            ' . $aliases . "
+        $configApp = $configApp.$aliases."
 
 
     ],

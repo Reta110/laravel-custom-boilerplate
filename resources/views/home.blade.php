@@ -8,7 +8,7 @@
 
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">Elige la versión de Laravel</h3>
+            <h3 class="panel-title">Select the Laravel's version</h3>
         </div>
         <div class="panel-body">
             <div class="checkbox col-md-12">
@@ -20,12 +20,14 @@
     </div>
 
     <div class="panel panel-info">
-        <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
-            Agregar componente
-        </button>
+        <p class="text-right pull-right">
+            <button type="button" class="btn btn-primary btn-xs margin-top-8 margin-right-10" data-toggle="modal" data-target="#myModal">
+                Add new component
+            </button>
+        </p>
 
         <div class="panel-heading">
-            <h3 class="panel-title">Elige los componentes</h3>
+            <h3 class="panel-title">Choose your components</h3>
         </div>
         <div class="panel-body">
             @foreach($packages as $package)
@@ -43,18 +45,18 @@
     </div>
 
     <p class="top-buffer ">
-        <button type="submit" class="btn btn-success btn-block center-block">Generar archivos</button>
+        <button type="submit" class="btn btn-success btn-block center-block">Generate files</button>
     </p>
 
     {!! Form::close() !!}
 
     @if (session('content'))
         <div class="alert alert-danger">
-           Bajar tu copia fresca de Laravel 5.1:
+           Download your fresh copy of Laravel 5.1:
         </div>
 
         <!-- Trigger -->
-        <h2>1. Copia código generado: composer.json  y sustituye el tuyo.  <button type="button" class="btn btn-info allright" data-clipboard-target="#code">Copy to clipboard</button></h2>
+        <h2>1. Copy this generated code: composer.json  and replace yours.  <button type="button" class="btn btn-info allright" data-clipboard-target="#code">Copy to clipboard</button></h2>
 
 
         <!-- 2. Include library -->
@@ -67,10 +69,10 @@
         <pre class="language-none line-numbers" id="code"><code>{{ session('content') }}</code>
         </pre>
         <div class="alert alert-danger">
-            Ejecuta en la consola <strong>composer update</strong>
+            Execute console command:<strong>composer update</strong>
         </div>
         <!-- Trigger -->
-        <h2>2. Ahora copia código generado: config/app.php  y sustitutye el tuyo.   <button type="button" class="btn btn-info allright" data-clipboard-target="#codeApp">Copy to clipboard</button></h2>
+        <h2>2. Copy this generated code: config/app.php  and replace yours.   <button type="button" class="btn btn-info allright" data-clipboard-target="#codeApp">Copy to clipboard</button></h2>
 
         <!-- Target -->
         <pre class="language-none line-numbers" id="codeApp"><code>{{ session('configApp') }}</code>
@@ -88,8 +90,9 @@
         </script>
 
         @if (session('publish') != "")
-        <h2>3. Ejecuta en la consola los vendor publish correspondientes (Uno por uno)</h2>
-        <pre class="language-none line-numbers" id="codeApp"><code>{{ session('publish') }}</code>
+        <h2>3. Execute in console this vendors publish (One by one)</h2>
+        <pre class="language-none line-numbers" id="codeApp">
+            <code>{{session('publish')}}</code>
         </pre>
         @endif
 
