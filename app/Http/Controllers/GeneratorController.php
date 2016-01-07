@@ -44,8 +44,10 @@ class GeneratorController extends Controller
 
         $package->name = $request->name;
         $package->composer = $request->composer;
+
         if($request->dev =! 1)
         $package->dev = 0;
+
         $package->providers = $request->providers;
         $package->aliases = $request->aliases;
         $package->publish = $request->publish;
@@ -59,82 +61,72 @@ class GeneratorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Request $request
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
     public function show(Request $request)
     {
 
-     //Composer lines in variables
+        //Composer lines in variables
         $requireVar='';
         $requireDevVar='';
         $providers='';
         $aliases='';
         $publish='';
 
-        $version = Input::get('version');
+        /*$version = Input::get('version');
 
         if($version = '5.1')
-            $version = '"laravel/framework": "5.1.*"\'';
+        $version = '"laravel/framework": "5.1.*"\'';*/
 
+    //for each input
+    foreach(Input::all() as $key => $value){
+        if($key != '_token' && $key != 'version'){
 
-foreach(Input::all() as $key => $value){
-  if($key != '_token' && $key != 'version'){
+            $result = \DB::table('packages')
+                ->where('id','=',$key)
+                ->first();
 
-    $result = \DB::table('packages')
-        ->where('id','=',$key)
-        ->first();
+             if($result->dev == 0){
+                $requireVar = $requireVar.',
+                '.$result->composer;
+             }else{
 
-     if($result->dev == 0){
-        $requireVar = $requireVar.',
-        '.$result->composer;
-     }else{
+                $requireDevVar = $requireDevVar.',
+                '.$result->composer;
+             }
 
-        $requireDevVar = $requireDevVar.',
-        '.$result->composer;
-     }
+              //Providers
+              if(isset($result->providers))
+              $providers = $providers.'
+                '.$result->providers;
 
-      //Providers
-      if(isset($result->providers))
-      $providers = $providers.'
-        '.$result->providers;
-      //Aliases
-      if(isset($result->aliases))
-      $aliases = $aliases.$result->aliases;
+              //Aliases
+              if(isset($result->aliases))
+              $aliases = $aliases.$result->aliases;
 
-      //Publish
-      if(isset($result->publish))
-      $publish = $publish.'
-      '.$result->publish;
-  }
-}//End foreach
-
-        //Indentation of the providers
-        if(isset($providers)){
-            $providers = str_replace(' ','', $providers);
-            $providers= preg_replace("[\n|\r|\n\r]", "", $providers);
-            $providers = str_replace('=>',' => ', $providers);
-            $providers = str_replace('::class,','::class,
-        ', $providers);
+              //Publish
+              if(isset($result->publish))
+              $publish = $publish.'
+              '.$result->publish;
         }
+    }//End foreach
 
-        //Indentation of the aliases
-        if(isset($aliases)){
-            $aliases = str_replace(' ','', $aliases);
-            $aliases= preg_replace("[\n|\r|\n\r]", "", $aliases);
-            $aliases = str_replace('=>',' => ', $aliases);
-            $aliases = str_replace('::class,','::class,
-        ', $aliases);
-        }
+        //Perfect indentation for the lines
+        $providers = $this->indentation($providers);
+        $aliases = $this->indentation($aliases);
 
         list($content, $configApp) = $this->generate51($requireVar, $requireDevVar, $providers, $aliases);
 
+        //The files are saved in a foder  day/time/files.php
         $day = date('d-m-y');
         $folder = time();
 
         Storage::put($day.'/'.$folder.'/composer.json',$content);
         Storage::put($day.'/'.$folder.'/config.php',$configApp);
 
+        //Return to show in the view
         $variables = array(
             'content' => $content,
             'configApp' => $configApp,
@@ -146,39 +138,6 @@ foreach(Input::all() as $key => $value){
     return redirect('/home')->with($variables);
 }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     /**
      * @param $requireVar
@@ -189,7 +148,7 @@ foreach(Input::all() as $key => $value){
      */
     public function generate51($requireVar, $requireDevVar, $providers, $aliases)
     {
-//Estructure of the file
+    //Estructure of the file
         $content = '{
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
@@ -455,5 +414,22 @@ return [
 ];
 ";
         return array($content, $configApp);
+    }
+
+    /**
+     * @param $var
+     * @return mixed
+     */
+    public function indentation($var)
+    {
+        if (isset($var)) {
+            $var = str_replace(' ', '', $var);
+            $var = preg_replace("[\n|\r|\n\r]", "", $var);
+            $var = str_replace('=>', ' => ', $var);
+            $var = str_replace('::class,', '::class,
+        ', $var);
+        }
+
+        return $var;
     }
 }
