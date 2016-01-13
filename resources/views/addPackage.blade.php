@@ -54,6 +54,11 @@
                         <label for="description">Description</label>
                         <textarea class="form-control" rows="3" name="description"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="url">Website</label>
+                        <input type="text" class="form-control" name="url" placeholder="Website / Documentation">
+                        <p class="help-block">http://www.example.com</p>
+                    </div>
 
             </div>
             <div class="modal-footer">
