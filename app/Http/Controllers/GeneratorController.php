@@ -52,7 +52,7 @@ class GeneratorController extends Controller
         $package->aliases = $request->aliases;
         $package->publish = $request->publish;
         $package->description = $request->description;
-        $package->url = $request->url;
+        $package->description = $request->url;
 
         $package->save();
 

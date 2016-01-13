@@ -39,16 +39,16 @@
             <h3 class="panel-title">Choose your components</h3>
         </div>
         <div class="panel-body">
+            <div class="funkyradio">
             @foreach($packages as $package)
 
-                <div class="checkbox col-md-3">
-
-                    <label>{{$package->name}}</label>
-                    <input type="checkbox" name="{{$package->id}}">
-
+                <div class="funkyradio-success col-md-3">
+                    <input type="radio" name="{{$package->id}}" id="{{$package->id}}" />
+                    <label for="{{$package->id}}">{{$package->name}}</label>
                 </div>
 
             @endforeach
+            </div>
         </div>
 
     </div>
