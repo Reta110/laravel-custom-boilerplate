@@ -19,6 +19,15 @@
 
     </div>
 
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul class="list-inline">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="panel panel-info">
         <p class="text-right pull-right">
             <button type="button" class="btn btn-primary btn-xs margin-top-8 margin-right-10" data-toggle="modal" data-target="#myModal">

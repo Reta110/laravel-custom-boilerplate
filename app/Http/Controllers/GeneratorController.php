@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePackageRequest;
 use App\Package;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -26,7 +27,7 @@ class GeneratorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() 
     {
         //
     }
@@ -37,10 +38,9 @@ class GeneratorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePackageRequest $request)
     {
         $package = new Package();
-
 
         $package->name = $request->name;
         $package->composer = $request->composer;

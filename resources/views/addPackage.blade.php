@@ -7,14 +7,23 @@
                 <h4 class="modal-title" id="myModalLabel">Agregar un nuevo Package</h4>
             </div>
             <div class="modal-body">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 {!! Form::open(array('url' => '/store')) !!}
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" placeholder="Name" required="true">
                     </div>
                     <div class="form-group">
                         <label for="composer">Composer line</label>
-                        <input type="text" class="form-control" name="composer" placeholder="Installation line">
+                        <input type="text" class="form-control" name="composer" placeholder="Installation line" required="true">
                         <p class="help-block">Example: "laravelcollective/html": "5.1.*"</p>
                     </div>
                     <div class="form-group">
