@@ -114,6 +114,8 @@ class GeneratorController extends Controller
     }//End foreach
 
         //Perfect indentation for the lines
+        $requireVar = $this->indentationByComma($requireVar);
+        $requireDevVar = $this->indentationByComma($requireDevVar);
         $providers = $this->indentation($providers);
         $aliases = $this->indentation($aliases);
 
@@ -427,6 +429,19 @@ return [
             $var = preg_replace("[\n|\r|\n\r]", "", $var);
             $var = str_replace('=>', ' => ', $var);
             $var = str_replace('::class,', '::class,
+        ', $var);
+        }
+
+        return $var;
+    }
+
+    public function indentationByComma($var)
+    {
+        if (isset($var)) {
+            $var = str_replace(' ', '', $var);
+            $var = preg_replace("[\n|\r|\n\r]", "", $var);
+            $var = str_replace(':', ': ', $var);
+            $var = str_replace(',', ',
         ', $var);
         }
 
