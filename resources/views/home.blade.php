@@ -42,8 +42,8 @@
             <div class="funkyradio">
             @foreach($packages as $package)
 
-                <div class="funkyradio-success col-md-3">
-                    <input type="radio" name="{{$package->id}}" id="{{$package->id}}" />
+                <div class="funkyradio-success col-md-3 pull-left">
+                    <input type="checkbox" name="{{$package->id}}" id="{{$package->id}}" />
                     <label for="{{$package->id}}">{{$package->name}}</label>
                 </div>
 
